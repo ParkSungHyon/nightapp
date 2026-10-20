@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0B0D12"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="밤장 읽어주기"
+                android:textColor="#E8E6DF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="대기 중"
+                android:textColor="#E9B44C"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/prices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:background="#141821"
+            android:fontFamily="monospace"
+            android:padding="18dp"
+            android:textColor="#E8E6DF"
+            android:textSize="18sp"
+            android:lineSpacingExtra="8dp" />
+
+        <Button
+            android:id="@+id/toggle"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="18dp"
+            android:backgroundTint="#E9B44C"
+            android:text="▶  시작"
+            android:textColor="#1A1405"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/speakNow"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#232A37"
+                android:text="🔊 지금 읽기"
+                android:textColor="#E8E6DF" />
+            <Button
+                android:id="@+id/testVoice"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:backgroundTint="#232A37"
+                android:text="🎙 목소리 테스트"
+                android:textColor="#E8E6DF" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/settingsToggle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:backgroundTint="#141821"
+            android:text="설정 열기 / 닫기"
+            android:textColor="#8A8F9C" />
+
+        <LinearLayout
+            android:id="@+id/settingsBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#141821"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <TextView style="@style/Label" android:text="Finnhub 키 (API key)" />
+            <EditText android:id="@+id/apikey" style="@style/Field" android:inputType="textNoSuggestions" />
+
+            <TextView style="@style/Label" android:text="종목 (영문코드=한글이름, 쉼표로 구분)" />
+            <EditText android:id="@+id/symbols" style="@style/Field" android:inputType="text" />
+
+            <TextView style="@style/Label" android:text="확인 주기" />
+            <Spinner android:id="@+id/interval" style="@style/Field" />
+
+            <TextView style="@style/Label" android:text="언제 말할까" />
+            <Spinner android:id="@+id/mode" style="@style/Field" />
+
+            <TextView style="@style/Label" android:text="변동 기준 (마지막으로 읽어준 가격 대비)" />
+            <Spinner android:id="@+id/threshold" style="@style/Field" />
+
+            <TextView style="@style/Label" android:text="말하기 속도" />
+            <Spinner android:id="@+id/rate" style="@style/Field" />
+
+            <CheckBox
+                android:id="@+id/marketOnly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="미국 장중(뉴욕 09:30~16:00)에만 작동"
+                android:textColor="#E8E6DF" />
+
+            <TextView
+                style="@style/Label"
+                android:layout_marginTop="12dp"
+                android:text="설정은 시작/지금 읽기 버튼을 누를 때 저장됩니다. 무료 시세는 10~20초 정도 늦습니다." />
+        </LinearLayout>
+
+        <TextView
+            style="@style/Label"
+            android:layout_marginTop="18dp"
+            android:text="기록" />
+        <TextView
+            android:id="@+id/log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:textColor="#8A8F9C"
+            android:textSize="12sp" />
+    </LinearLayout>
+</ScrollView>

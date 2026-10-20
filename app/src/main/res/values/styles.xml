@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">밤장 읽어주기</string>
+
+    <style name="Theme.NightTicker" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">#0B0D12</item>
+        <item name="android:navigationBarColor">#0B0D12</item>
+        <item name="android:windowBackground">#0B0D12</item>
+        <item name="android:textColorPrimary">#E8E6DF</item>
+        <item name="colorPrimary">#E9B44C</item>
+        <item name="colorAccent">#E9B44C</item>
+    </style>
+
+    <style name="Label">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textColor">#8A8F9C</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Field">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#E8E6DF</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:backgroundTint">#8A8F9C</item>
+    </style>
+</resources>
