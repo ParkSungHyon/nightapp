@@ -134,6 +134,13 @@ class PriceService : Service() {
                 }
             }
             handler.post {
+                if (quotes.isNotEmpty()) {
+                    val summary = quotes.joinToString("  ") { q ->
+                        val sign = if (q.changePct >= 0) "+" else ""
+                        "${q.name} ${String.format(Locale.US, "%.2f", q.price)}(${sign}${String.format(Locale.US, "%.1f", q.changePct)}%)"
+                    }
+                    log((if (parts.isEmpty()) "확인 · 변동 없음 · " else "확인 · ") + summary)
+                }
                 if (parts.isNotEmpty()) speakWhenReady(parts.joinToString(" "))
                 updateNotification(if (running) "감시 중 · ${prefs.intervalMin}분마다" else "확인 완료")
                 broadcast()
@@ -187,7 +194,7 @@ class PriceService : Service() {
 
     private fun log(msg: String) {
         val t = String.format(Locale.KOREA, "%tR", System.currentTimeMillis())
-        lastLog = "$t  $msg\n$lastLog".take(4000)
+        lastLog = "$t  $msg\n$lastLog".take(8000)
         broadcast()
     }
 
