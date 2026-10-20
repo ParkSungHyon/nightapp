@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     private var testTts: TextToSpeech? = null
 
     private val intervals = listOf(1, 3, 5, 10, 15, 30)
-    private val thresholds = listOf(0.5f, 1f, 2f, 3f, 5f)
+    private val thresholds = listOf(0.2f, 0.3f, 0.5f, 1f, 2f, 3f, 5f)
     private val rates = listOf(0.8f to "느리게", 0.95f to "보통", 1.15f to "빠르게")
 
     private val receiver = object : BroadcastReceiver() {
@@ -106,11 +106,11 @@ class MainActivity : AppCompatActivity() {
         if (testTts == null) {
             testTts = TextToSpeech(this) { st ->
                 if (st == TextToSpeech.SUCCESS) { testTts?.language = Locale.KOREAN; testTts?.setSpeechRate(prefs.speechRate)
-                    testTts?.speak("테슬라 432달러, 0.8퍼센트 상승. 팔란티어 178달러, 1.2퍼센트 하락.", TextToSpeech.QUEUE_FLUSH, null, "t") }
+                    testTts?.speak("테슬라 432달러, 0.8퍼센트 상승. 엔비디아 185달러, 0.3퍼센트 하락.", TextToSpeech.QUEUE_FLUSH, null, "t") }
             }
         } else {
             testTts?.setSpeechRate(prefs.speechRate)
-            testTts?.speak("테슬라 432달러, 0.8퍼센트 상승. 팔란티어 178달러, 1.2퍼센트 하락.", TextToSpeech.QUEUE_FLUSH, null, "t")
+            testTts?.speak("테슬라 432달러, 0.8퍼센트 상승. 엔비디아 185달러, 0.3퍼센트 하락.", TextToSpeech.QUEUE_FLUSH, null, "t")
         }
     }
 

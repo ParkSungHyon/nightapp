@@ -2,7 +2,7 @@ package com.aj.nightticker
 
 import android.content.Context
 
-/** 앱 설정. 종목은 "TSLA=테슬라, PLTR=팔란티어" 형식의 한 줄 문자열. */
+/** 앱 설정. 종목은 "TSLA=테슬라, NVDA=엔비디아, PLTR=팔란티어, TSM=TSMC" 형식의 한 줄 문자열. */
 class Prefs(ctx: Context) {
     private val p = ctx.getSharedPreferences("nightticker", Context.MODE_PRIVATE)
 
@@ -11,11 +11,11 @@ class Prefs(ctx: Context) {
         set(v) = p.edit().putString("apiKey", v.trim()).apply()
 
     var symbols: String
-        get() = p.getString("symbols", "TSLA=테슬라, PLTR=팔란티어") ?: ""
+        get() = p.getString("symbols", "TSLA=테슬라, NVDA=엔비디아, PLTR=팔란티어, TSM=TSMC") ?: ""
         set(v) = p.edit().putString("symbols", v).apply()
 
     var intervalMin: Int
-        get() = p.getInt("intervalMin", 5)
+        get() = p.getInt("intervalMin", 1)
         set(v) = p.edit().putInt("intervalMin", v).apply()
 
     /** true: 변동 있을 때만 말하기, false: 주기마다 매번 말하기 */
@@ -24,7 +24,7 @@ class Prefs(ctx: Context) {
         set(v) = p.edit().putBoolean("onlyOnChange", v).apply()
 
     var thresholdPct: Float
-        get() = p.getFloat("thresholdPct", 1f)
+        get() = p.getFloat("thresholdPct", 0.2f)
         set(v) = p.edit().putFloat("thresholdPct", v).apply()
 
     var marketOnly: Boolean
